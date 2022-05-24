@@ -1,9 +1,10 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const User = require('./user.js');
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 const parseXlsx = require('excel');
 app.get('/', (req, res) => {
@@ -96,7 +97,7 @@ app.post('/answers', (req, res) => {
 });
 
 app.get('/img', (req, res) => {
-  res.sendFile('D:\dtm\public\img11605049.png');
+  res.sendFile('D:dtmpublicimg11605049.png');
 });
 
 app.listen(3000, () => {
