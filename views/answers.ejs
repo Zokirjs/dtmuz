@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Test natijalari</title>
+  </head>
+  <body>
+    <header>
+      <p class="head-title">Test natijalari</p>
+    </header>
+
+    <div class="container">
+      <div class="img">
+        <img src="/img/11605049.png" alt="" />
+      </div>
+      <div class="detail">
+        <p class="detail-title"><%=data.name%></p>
+        <ul class="detail-info">
+          <li>ID: <b><%= data.id %></b></li>
+          <li>Sinf: <b><%= data.class_ %></b></li>
+        </ul>
+        <p class="detail-text">
+          <table>
+              <% for (let i = 1; i<= data.limit; i+=5) { %>
+                <tr>
+                  <td><%= i %>. <%= data.answers[i-1] %>  <span><img src="img/<%= data.keys[i-1] %>.png" width="20px" alt=""></span></td>
+                  <td><%= i+1 %>. <%= data.answers[i] %> <span><img src="img/<%= data.keys[i] %>.png" width="20px" alt=""></span></td>
+                  <td><%= i+2 %>. <%= data.answers[i+1] %> <span><img src="img/<%= data.keys[i+1] %>.png" width="20px" alt=""></span></td>
+                  <td><%= i+3%>. <%= data.answers[i+2] %> <span><img src="img/<%= data.keys[i+2] %>.png" width="20px" alt=""></span></td>
+                  <td><%= i+4%>. <%= data.answers[i+3] %>  <span><img src="img/<%= data.keys[i+3] %>.png" width="20px" alt=""></span></td>
+                </tr>
+              <% } %> 
+          </table>
+        </p>
+          <ul class="detail-footer">
+            <% for (let subj of data.subjects) {%> 
+            <li><%= subj.name %>: <b><%= subj.point %> ball</b></li>
+            <% } %>
+          </ul>
+      </div>
+    </div>
+  </body>
+</html>
